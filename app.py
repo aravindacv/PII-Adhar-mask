@@ -44,6 +44,12 @@ import streamlit as st
 
 # replace package-style imports with flat imports
 from base import clean_series_text
+from ind_aadhaar import validate_series as validate_aadhaar_series, mask_aadhaar, verhoeff_check_digit
+from phone import validate_series as validate_phone_series
+from local_store import new_run_path, save_run, list_runs, load_run
+from compliance import build_report
+
+from base import clean_series_text
 from ind_aadhaar import (
     validate_series as validate_aadhaar_series,
     mask_aadhaar,
