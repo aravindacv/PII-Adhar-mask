@@ -4,7 +4,7 @@
 from __future__ import annotations
 import typing as t
 import pandas as pd
-from validators.base import clean_series_digits, normalize_digits, add_quality_flags_digits, category_aadhaar
+from base import clean_series_digits, normalize_digits, add_quality_flags_digits, category_aadhaar
 
 # Verhoeff tables (multiplication d, permutation p, inverse inv)
 _d = [
@@ -93,3 +93,4 @@ def validate_series(series: pd.Series) -> pd.DataFrame:
     df = add_quality_flags_digits(df, col="aadhaar", prefix="q_")
     df["category"] = df["reason"].apply(category_aadhaar)
     return df
+
