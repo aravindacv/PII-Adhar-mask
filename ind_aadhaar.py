@@ -6,6 +6,8 @@ import typing as t
 import pandas as pd
 from base import clean_series_digits, normalize_digits, add_quality_flags_digits, category_aadhaar
 
+#from base import clean_series_digits, normalize_digits, add_quality_flags_digits, category_aadhaar
+
 # Verhoeff tables (multiplication d, permutation p, inverse inv)
 _d = [
     [0,1,2,3,4,5,6,7,8,9],
@@ -93,4 +95,5 @@ def validate_series(series: pd.Series) -> pd.DataFrame:
     df = add_quality_flags_digits(df, col="aadhaar", prefix="q_")
     df["category"] = df["reason"].apply(category_aadhaar)
     return df
+
 
