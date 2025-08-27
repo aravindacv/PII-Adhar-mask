@@ -30,17 +30,28 @@ import os
 import pandas as pd
 import streamlit as st
 
-from validators.base import clean_series_text
-from validators.ind_aadhaar import (
+# from validators.base import clean_series_text
+# from validators.ind_aadhaar import (
+#     validate_series as validate_aadhaar_series,
+#     mask_aadhaar,
+#     verhoeff_check_digit,  # exposed for transparency/help
+# )
+# from validators.phone import (
+#     validate_series as validate_phone_series,
+# )
+# from storage.local_store import new_run_path, save_run, list_runs, load_run
+# from reports.compliance import build_report
+
+# replace package-style imports with flat imports
+from base import clean_series_text
+from ind_aadhaar import (
     validate_series as validate_aadhaar_series,
     mask_aadhaar,
-    verhoeff_check_digit,  # exposed for transparency/help
+    verhoeff_check_digit,
 )
-from validators.phone import (
-    validate_series as validate_phone_series,
-)
-from storage.local_store import new_run_path, save_run, list_runs, load_run
-from reports.compliance import build_report
+from phone import validate_series as validate_phone_series
+from local_store import new_run_path, save_run, list_runs, load_run
+from compliance import build_report
 
 # ---------------- Page ----------------
 st.set_page_config(page_title="PII Data Quality & Masking", page_icon="🛡️", layout="wide")
