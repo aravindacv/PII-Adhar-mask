@@ -7,8 +7,9 @@ import re
 import pandas as pd
 import phonenumbers
 from phonenumbers import NumberParseException, PhoneNumberType
+from base import normalize_text
 
-from validators.base import normalize_text
+#from validators.base import normalize_text
 
 E164_RE = re.compile(r"^\+(\d{1,3})(\d{3})(\d{3})(\d+)$")  # for masking fallback
 
@@ -87,3 +88,4 @@ def validate_series(phone_series: pd.Series, region_series: t.Optional[pd.Series
     df = pd.DataFrame(rows)
     df["masked"] = df["e164"].apply(mask_e164)
     return df
+
